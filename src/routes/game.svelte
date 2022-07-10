@@ -14,9 +14,17 @@
 <div id='game-wrapper'>
     <h1>brain turning</h1>
     <div id='game'></div>
+
+    <!-- where we will place nested components (controls) -->
+    <slot></slot>
 </div>
 
 <style>
+    :global(body) {
+        font-family: Arial, Helvetica, sans-serif;
+        color: #edf0f1;
+        background-color: #24252a;
+    }
     #game-wrapper {
         display: flex;
         justify-content: center;
@@ -26,5 +34,9 @@
     #game {
         width: 80vw;
         height: 80vh;
+        /* border: 1px solid #0088a9; */
+        border-radius: 5px;
+        overflow: hidden;
+        box-shadow: 4px 4px 4px #000;
     }
 </style>

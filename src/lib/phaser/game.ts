@@ -18,16 +18,18 @@ class Example extends Phaser.Scene {
         this.grid = this.add.grid(
             0,
             0,
-            200,
-			200,
-			50,
-			50,
-			0xffffff,
-			1,
-            0x000000
+            //idw to do any more geom for a proof of concept so just x2
+            this.scale.gameSize.width * 2,
+			this.scale.gameSize.height* 2,
+			32,
+			32,
+			0xedf0f1,
+			0.2,
         )
 
         .setOrigin(0.5)
+        .setRotation(Math.PI / 4);
+
         console.log(this.input);
         const cursors = this.input.keyboard.createCursorKeys();
 
@@ -57,14 +59,14 @@ class Example extends Phaser.Scene {
     update(time: number, delta:number) {
 
         this.controls.update(delta);
-        this.grid.setPosition(this.grid.x + 0.1, this.grid.y + 0.1);
+        // this.grid.setPosition(this.grid.x + 0.1, this.grid.y + 0.1);
     }
 }
 
 const config = {
     type: Phaser.AUTO,
     parent: 'game',
-    backgroundColor: '#ffffff',
+    backgroundColor: '#2d2f35',
     scale: {
         width: 800,
         height: 600,
