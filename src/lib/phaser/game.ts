@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import {Tile} from './tile'
 
 class Example extends Phaser.Scene {
 
@@ -14,6 +15,16 @@ class Example extends Phaser.Scene {
     }
 
     create() {
+        const point = new Phaser.Geom.Point(
+            this.scale.gameSize.width/2,
+            this.scale.gameSize.height/2
+        );
+
+        const tile = new Tile(
+            this,
+            point,
+            [0, 0]
+        );
 
         this.grid = this.add.grid(
             0,
