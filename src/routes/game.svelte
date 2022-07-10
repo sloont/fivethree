@@ -1,8 +1,11 @@
-<script>
+<script lang="ts">
     import { onMount } from 'svelte/internal';
 
-    export const game = onMount(async () => {
+    export let game;
+
+    onMount(async (): Promise<void> => {
         await import('phaser');
+        const { gameScene } = await import ('$lib/scenes/gameScene');
 
         const config = {
             type: Phaser.AUTO,
@@ -14,9 +17,10 @@
                 autoRound: true,
                 resizeInterval: 100,
             },
+            scene: [gameScene]
         };
 
-        return new Phaser.Game(config)
+        game = new Phaser.Game(config)
     });
 
 </script>
